@@ -3,20 +3,17 @@
     <div class="image">
       <v-container>
         <v-row no-gutters>
-          <v-col
-            cols="12"
-          >
-            <v-col
-              sm="4"
-            >
+          <v-col cols="12">
+            <v-col sm="4">
               <v-hover>
                 <template v-slot:default="{ hover }">
-                  <v-card
-                    :elevation="hover ? 24 : 6"
-                    class="mx-auto pa-6"
-                  >
+                  <v-card :elevation="hover ? 24 : 6" class="mx-auto pa-6">
                     <template slot="progress">
-                      <v-progress-linear color="deep-purple" height="10" indeterminate />
+                      <v-progress-linear
+                        color="deep-purple"
+                        height="10"
+                        indeterminate
+                      />
                     </template>
 
                     <v-img height="100%" src="profile.jpg" />
@@ -27,50 +24,37 @@
 
                     <v-card-subtitle>
                       Developer Software Fullstack
-                    </v-card-subtitle>
-
-                    <v-card-text>
-                      <div class="my-4 subtitle-1">
-                        $ • Italian, Cafe
-                      </div>
-
                       <div>
-                        Small plates, salads & sandwiches - an intimate setting with 12 indoor
-                        seats plus patio seating.
+                        <v-icon color="primary">
+                          mdi-checkbox-marked-circle
+                        </v-icon>Age: 24
                       </div>
-                    </v-card-text>
-
+                      <div>
+                        <v-icon color="primary">
+                          mdi-checkbox-marked-circle
+                        </v-icon>Work Experience: 4 years
+                      </div>
+                      <div>
+                        <v-icon color="primary">
+                          mdi-checkbox-marked-circle
+                        </v-icon>Country: Perú
+                      </div>
+                    </v-card-subtitle>
+                    <v-card-text />
                     <v-divider class="mx-4" />
                   </v-card>
                 </template>
               </v-hover>
             </v-col>
-            <v-col
-              sm="8"
-            >
+            <v-col sm="8">
               <v-hover>
-                <template
-                  v-slot:default="{ hover }"
-                >
-                  <v-card
-
-                    :elevation="hover ? 24 : 6"
-                    class="mx-auto pa-6"
-                  >
-                    <v-tabs
-                      v-model="tab"
-                      show-arrows
-                      right
-                    >
+                <template v-slot:default="{ hover }">
+                  <v-card :elevation="hover ? 24 : 6" class="mx-auto pa-6">
+                    <v-tabs v-model="tab" show-arrows right>
                       <v-tab> About me </v-tab>
-                      <v-tab> Activities </v-tab>
                       <v-tab> Portfolio </v-tab>
                       <v-tab> Skills </v-tab>
-                      <v-menu
-                        v-if="more.length"
-                        bottom
-                        left
-                      >
+                      <v-menu v-if="more.length" bottom left>
                         <template v-slot:activator="{ on, attrs }">
                           <v-btn
                             text
@@ -87,12 +71,11 @@
                         <v-list>
                           <v-list-item-group>
                             <v-list-item>
-                              <v-switch
-                                v-model="$vuetify.theme.dark"
-                                inset
-                              />
+                              <v-switch v-model="$vuetify.theme.dark" inset />
                               <v-list-item-content>
-                                <v-list-item-title>Theme Dark </v-list-item-title>
+                                <v-list-item-title>
+                                  Theme Dark
+                                </v-list-item-title>
                               </v-list-item-content>
                             </v-list-item>
                             <v-list-item>
@@ -108,10 +91,7 @@
                       </v-menu>
                     </v-tabs>
                     <v-tabs-items v-model="tab">
-                      <v-container
-                        class="spacing-playground"
-                        fluid
-                      >
+                      <v-container class="spacing-playground" fluid>
                         <v-tab-item>
                           <v-card flat>
                             <v-card-title class="primary--text">
@@ -119,71 +99,295 @@
                             </v-card-title>
                             <v-card-text>
                               <div class="text-justify">
-                                Hi, I’m Victor. Nice to meet you.
-                                Since beginning my journey as a freelance designer nearly 10 years ago,
-                                I've done remote work for agencies, consulted for startups, and collaborated with talented people to create digital products for both business and consumer use.
-                                I'm quietly confident, naturally curious, and perpetually working on improving my chops one design problem at a time.
+                                Hi, I’m Victor. Nice to meet you. Since
+                                beginning my journey as a freelance designer
+                                nearly 10 years ago, I've done remote work for
+                                agencies, consulted for startups, and
+                                collaborated with talented people to create
+                                digital products for both business and consumer
+                                use. I'm quietly confident, naturally curious,
+                                and perpetually working on improving my chops
+                                one design problem at a time.
                               </div>
-                            </v-card-text>
-                          </v-card>
-                          <v-card flat>
-                            <v-card-title class="primary--text">
-                              Services
-                            </v-card-title>
-                            <v-card-text>
-                              <v-col
-                                cols="12"
-                                sm="4"
-                              >
-                                <v-card
-                                  class="mx-auto"
-                                >
-                                  <div class="hexagon">
-                                    <i class="mdi mdi-lightbulb-outline" />
-                                  </div>
-                                  <v-card-title style="font-size: 15px;">
-                                    Web Development
-                                  </v-card-title>
-                                  <v-card-subtitle>
-                                    1,000 miles of wonder
-                                  </v-card-subtitle>
-                                </v-card>
-                              </v-col>
+                              <v-divider />
+                              <v-expansion-panels>
+                                <v-expansion-panel>
+                                  <v-expansion-panel-header>
+                                    Formación Profesional
+                                    <template v-slot:actions>
+                                      <v-icon color="primary">
+                                        $expand
+                                      </v-icon>
+                                    </template>
+                                  </v-expansion-panel-header>
+                                  <v-expansion-panel-content>
+                                    <v-timeline align-top dense>
+                                      <v-timeline-item color="pink" small icon="mdi-star">
+                                        <v-row class="pt-1">
+                                          <v-col>
+                                            <strong>Bachiller</strong>
+                                            <div class="caption">
+                                              Ingeniería de Sistemas en Universidad Tecnológica del Perú - Arequipa
+                                            </div>
+                                          </v-col>
+                                        </v-row>
+                                      </v-timeline-item>
+                                    </v-timeline>
+                                    <v-timeline align-top dense>
+                                      <v-timeline-item color="pink" small icon="mdi-star">
+                                        <v-row class="pt-1">
+                                          <v-col>
+                                            <strong>Inglés Intermedio con certificación</strong>
+                                            <div class="caption">
+                                              Euroidiomas: Institución de inglés y otros idiomas.
+                                            </div>
+                                          </v-col>
+                                        </v-row>
+                                      </v-timeline-item>
+                                    </v-timeline>
+                                  </v-expansion-panel-content>
+                                </v-expansion-panel>
+                                <v-expansion-panel>
+                                  <v-expansion-panel-header disable-icon-rotate>
+                                    Experiencia Laboral
+                                    <template v-slot:actions>
+                                      <v-icon color="primary">
+                                        $expand
+                                      </v-icon>
+                                    </template>
+                                  </v-expansion-panel-header>
+                                  <v-expansion-panel-content>
+                                    <v-timeline align-top dense>
+                                      <v-timeline-item color="indigo darken-4" small icon="mdi-star">
+                                        <v-row class="pt-1">
+                                          <v-col>
+                                            <strong>Acist Peru S.A.C.</strong>
+                                            <div class="caption">
+                                              Desarrollo de sistemas webs usando Laravel + VuetifyJS + NuxtJs.
+                                            </div>
+                                          </v-col>
+                                        </v-row>
+                                      </v-timeline-item>
+                                      <v-timeline-item color="indigo darken-4" small icon="mdi-star">
+                                        <v-row class="pt-1">
+                                          <v-col>
+                                            <strong>Itesur S.A.C.</strong>
+                                            <div class="caption">
+                                              Desarrollo de sistemas webs usando Laravel.
+                                            </div>
+                                          </v-col>
+                                        </v-row>
+                                      </v-timeline-item>
+                                      <v-timeline-item color="indigo darken-4" small icon="mdi-star">
+                                        <v-row class="pt-1">
+                                          <v-col>
+                                            <strong>Colegio Anglo Americano Prescott</strong>
+                                            <div class="caption">
+                                              Desarrollo de sistemas webs usando Laravel.
+                                            </div>
+                                          </v-col>
+                                        </v-row>
+                                      </v-timeline-item>
+                                      <v-timeline-item color="indigo darken-4" small icon="mdi-star">
+                                        <v-row class="pt-1">
+                                          <v-col>
+                                            <strong>Softia</strong>
+                                            <div class="caption">
+                                              Desarrollo de sistemas webs usando Java Spring MVC.
+                                            </div>
+                                          </v-col>
+                                        </v-row>
+                                      </v-timeline-item>
+                                      <v-timeline-item color="indigo darken-4" small icon="mdi-star">
+                                        <v-row class="pt-1">
+                                          <v-col>
+                                            <strong>Instituto Macro Perú</strong>
+                                            <div class="caption">
+                                              Elaboración de Sistema Específico de certificados.
+                                            </div>
+                                          </v-col>
+                                        </v-row>
+                                      </v-timeline-item>
+                                      <v-timeline-item color="indigo darken-4" small icon="mdi-star">
+                                        <v-row class="pt-1">
+                                          <v-col>
+                                            <strong>Turbo Gaming Center</strong>
+                                            <div class="caption">
+                                              Elaboración Sistema Específico de Ventas e Inventario empresa.
+                                            </div>
+                                          </v-col>
+                                        </v-row>
+                                      </v-timeline-item>
+                                      <v-timeline-item color="indigo darken-4" small icon="mdi-star">
+                                        <v-row class="pt-1">
+                                          <v-col>
+                                            <strong>Poder Judicial</strong>
+                                            <div class="caption">
+                                              Documentación y análisis en el Proyecto de Interoperabilidad de Operadores de Justicia, Sistema SIOJ
+                                            </div>
+                                          </v-col>
+                                        </v-row>
+                                      </v-timeline-item>
+                                      <v-timeline-item color="indigo darken-4" small icon="mdi-star">
+                                        <v-row class="pt-1">
+                                          <v-col>
+                                            <strong>EsSalud</strong>
+                                            <div class="caption">
+                                              Documentación y análisis en el Sistema Control de Expedientes- Área Logística
+                                            </div>
+                                          </v-col>
+                                        </v-row>
+                                      </v-timeline-item>
+                                    </v-timeline>
+                                  </v-expansion-panel-content>
+                                </v-expansion-panel>
+                                <v-expansion-panel>
+                                  <v-expansion-panel-header disable-icon-rotate>
+                                    Hackathones
+                                    <template v-slot:actions>
+                                      <v-icon color="primary">
+                                        $expand
+                                      </v-icon>
+                                    </template>
+                                  </v-expansion-panel-header>
+                                  <v-expansion-panel-content>
+                                    <v-timeline align-top dense>
+                                      <v-timeline-item color="indigo darken-4" small icon="mdi-star">
+                                        <v-row class="pt-1">
+                                          <v-col>
+                                            <strong>Hackathon Oracle Apex 2020 Latinoamerica</strong>
+                                            <div class="caption">
+                                              Segundo puesto nivel Latinoamerica. Proyecto “Plataforma educativa DidactiCloud”.
+                                              <a target="_blank" href="https://blogs.oracle.com/apex/apexhack20:-primer-hackaton-en-latinoam%c3%a9rica">Ver Noticia</a>
+                                            </div>
+                                          </v-col>
+                                        </v-row>
+                                      </v-timeline-item>
+                                      <v-timeline-item color="indigo darken-4" small icon="mdi-star">
+                                        <v-row class="pt-1">
+                                          <v-col>
+                                            <strong>Hackathon Comercio Perú 2020</strong>
+                                            <div class="caption">
+                                              Participación a través del proyecto de “Red Social para conocimiento de candidatos presidenciales”.
+                                              <a target="_blank" href="https://elcomercio.pe/tecnologia/hackathon-jovenes-disenaran-soluciones-centradas-en-el-voto-informado-tecnologia-noticia/?ref=ecr">Ver Noticia</a>
+                                            </div>
+                                          </v-col>
+                                        </v-row>
+                                      </v-timeline-item>
+                                      <v-timeline-item color="indigo darken-4" small icon="mdi-star">
+                                        <v-row class="pt-1">
+                                          <v-col>
+                                            <strong>Hackathon La positiva 2019</strong>
+                                            <div class="caption">
+                                              Participación a través del proyecto de “Detección de nivel de estrés a través de reconocimiento facial”.
+                                              <a target="_blank" href="https://open.pucp.edu.pe/noticias/ganadores-de-la-iv-hackathon-la-positiva-convertiran-sus-ideas-en-startups/">Ver Noticia</a>
+                                            </div>
+                                          </v-col>
+                                        </v-row>
+                                      </v-timeline-item>
+                                      <v-timeline-item color="indigo darken-4" small icon="mdi-star">
+                                        <v-row class="pt-1">
+                                          <v-col>
+                                            <strong>Hackathon Perumin 2019</strong>
+                                            <div class="caption">
+                                              Participación a través del proyecto de “La supervisión y monitoreo del estado de salud y ubicación de trabajadores en tiempo real durante sus actividades de explotación minera subterránea”
+                                              <a target="_blank" href="https://desdeadentro.pe/main/edicion/66/articulos/premian-a-ganadores-de-la-6-hackaton-2019">Ver Noticia</a>
+                                            </div>
+                                          </v-col>
+                                        </v-row>
+                                      </v-timeline-item>
+                                      <v-timeline-item color="indigo darken-4" small icon="mdi-star">
+                                        <v-row class="pt-1">
+                                          <v-col>
+                                            <strong>Hackathon El Comercio 2019</strong>
+                                            <div class="caption">
+                                              Segundo puesto a nivel nacional en solución innovadora y tecnológica para el problema de la denuncias y delincuencia.
+                                              <a target="_blank" href="https://elcomercio.pe/tecnologia/estoyalerta-jovenes-peruanos-disenan-una-red-social-contra-la-delincuencia-noticia/">Ver Noticia</a>
+                                            </div>
+                                          </v-col>
+                                        </v-row>
+                                      </v-timeline-item>
+                                      <v-timeline-item color="indigo darken-4" small icon="mdi-star">
+                                        <v-row class="pt-1">
+                                          <v-col>
+                                            <strong>Apuesta por ti</strong>
+                                            <div class="caption">
+                                              Participación en IV Edición del Premio al Emprendedor Universitario.
+                                              <a target="_blank" href="https://www.facebook.com/UTPSedeArequipa/posts/1229404533909287/">Ver Noticia</a>
+                                            </div>
+                                          </v-col>
+                                        </v-row>
+                                      </v-timeline-item>
+                                    </v-timeline>
+                                  </v-expansion-panel-content>
+                                </v-expansion-panel>
+                              </v-expansion-panels>
                             </v-card-text>
                           </v-card>
                         </v-tab-item>
                         <v-tab-item>
-                          <v-timeline
-                            align-top
-                            :dense="$vuetify.breakpoint.smAndDown"
+                          <v-card
+                            flat
+                            tile
                           >
-                            <v-timeline-item
-                              v-for="(activity, i) in activities"
-                              :key="i"
-                              :color="activity.color"
-                              :icon="activity.icon"
-                              fill-dot
+                            <v-window
+                              v-model="onboarding"
+                              vertical
                             >
-                              <v-card
-                                :color="activity.color"
-                                dark
+                              <v-window-item
+                                v-for="portfolio in portfolios"
+                                :key="`card-${portfolio}`"
+                                show-arrows-on-hover="true"
                               >
-                                <v-card-title class="title">
-                                  Lorem Ipsum Dolor
-                                </v-card-title>
-                                <v-card-text class="white text--primary">
-                                  <p>Lorem ipsum dolor sit amet, no nam oblique veritus. Commune scaevola imperdiet nec ut, sed euismod convenire principes at. Est et nobis iisque percipit, an vim zril disputando voluptatibus, vix an salutandi sententiae.</p>
+                                <v-card
+                                  class="mx-auto"
+                                >
+                                  <v-img :src="portfolio.img" contain max-height="290" />
+
+                                  <v-card-text>
+                                    <h2 class="title primary--text">
+                                      {{ portfolio.title }}
+                                    </h2>
+                                    Travel to the best outdoor experience on planet Earth. A vacation you will never forget!
+                                  </v-card-text>
+                                </v-card>
+                              </v-window-item>
+                            </v-window>
+
+                            <v-card-actions class="justify-space-between">
+                              <v-btn
+                                text
+                                @click="prev"
+                              >
+                                <v-icon>mdi-chevron-left</v-icon>
+                              </v-btn>
+                              <v-item-group
+                                v-model="onboarding"
+                                class="text-center"
+                                mandatory
+                              >
+                                <v-item
+                                  v-for="n in length"
+                                  :key="`btn-${n}`"
+                                  v-slot="{ active, toggle }"
+                                >
                                   <v-btn
-                                    :color="activity.color"
-                                    class="mx-0"
-                                    outlined
+                                    :input-value="active"
+                                    icon
+                                    @click="toggle"
                                   >
-                                    Button
+                                    <v-icon>mdi-record</v-icon>
                                   </v-btn>
-                                </v-card-text>
-                              </v-card>
-                            </v-timeline-item>
-                          </v-timeline>
+                                </v-item>
+                              </v-item-group>
+                              <v-btn
+                                text
+                                @click="next"
+                              >
+                                <v-icon>mdi-chevron-right</v-icon>
+                              </v-btn>
+                            </v-card-actions>
+                          </v-card>
                         </v-tab-item>
                         <v-tab-item>
                           <v-card flat>
@@ -191,77 +395,37 @@
                               Frontend
                             </v-card-title>
                             <v-card-text>
-                              <div>
-                                <v-progress-linear
-                                  class="rounded-lg font-italic font-weight-black"
-                                  color="red"
-                                  height="15"
-                                  value="99"
-                                  striped
-                                >
-                                  <strong class="white--text">HTML5 99%</strong>
-                                </v-progress-linear>
-                                <br>
-                                <v-progress-linear
-                                  class="rounded-lg font-italic font-weight-black"
-                                  color="indigo"
-                                  height="15"
-                                  value="85"
-                                  striped
-                                >
-                                  <strong class="white--text">CSS3 && SCSS && CSS IN JS 85%</strong>
-                                </v-progress-linear>
-                                <br>
-                                <v-progress-linear
-                                  class="rounded-lg font-italic font-weight-black"
-                                  height="15"
-                                  value="90"
-                                  striped
-                                  color="purple"
-                                >
-                                  <strong class="white--text">JAVASCRIPT 90%</strong>
-                                </v-progress-linear>
-                                <br>
-                                <v-progress-linear
-                                  class="rounded-lg font-italic font-weight-black"
-                                  value="80"
-                                  height="15"
-                                  striped
-                                  color="deep-purple"
-                                >
-                                  <strong class="white--text">JQUERY 80%</strong>
-                                </v-progress-linear>
-                                <br>
-                                <v-progress-linear
-                                  class="rounded-lg font-italic font-weight-black"
-                                  value="75"
-                                  height="15"
-                                  striped
-                                  color="indigo darken-1"
-                                >
-                                  <strong class="white--text">BOOTSTRAP 75%</strong>
-                                </v-progress-linear>
-                                <br>
-                                <v-progress-linear
-                                  class="rounded-lg font-italic font-weight-black"
-                                  value="60"
-                                  height="15"
-                                  striped
-                                  color="cyan darken-2"
-                                >
-                                  <strong class="white--text">VUE - VUEX - VUETIFY  60%</strong>
-                                </v-progress-linear>
-                                <br>
-                                <v-progress-linear
-                                  class="rounded-lg font-italic font-weight-black"
-                                  value="50"
-                                  height="15"
-                                  striped
-                                  color="green darken-4"
-                                >
-                                  <strong class="white--text">REACT - REACT NATIVE 50%</strong>
-                                </v-progress-linear>
-                              </div>
+                              <strong>HTML5 90%</strong>
+                              <v-progress-linear
+                                color="teal"
+                                buffer-value="0"
+                                value="99"
+                                stream
+                              />
+                              <br>
+                              <strong>CSS3 && SASS </strong>
+                              <v-progress-linear
+                                buffer-value="95"
+                                value="75"
+                                stream
+                                color="cyan"
+                              />
+                              <br>
+                              <strong>JAVASCRIPT 90%</strong>
+                              <v-progress-linear
+                                buffer-value="60"
+                                value="90"
+                                stream
+                                color="orange"
+                              />
+                              <br>
+                              <strong>VUE - VUEX - VUETIFY 60%</strong>
+                              <v-progress-linear
+                                buffer-value="60"
+                                value="90"
+                                stream
+                                color="orange"
+                              />
                             </v-card-text>
                             <v-card-title class="primary--text">
                               Backend
@@ -350,61 +514,6 @@
           </v-col>
         </v-row>
       </v-container>
-      <!-- <v-row>
-          <v-col cols="3">
-            <v-card>
-              <template slot="progress">
-                <v-progress-linear color="deep-purple" height="10" indeterminate />
-              </template>
-
-              <v-img height="250" src="profile.jpg" />
-
-              <v-card-title>Víctor Gálvez</v-card-title>
-
-              <v-card-text>
-                <v-row>
-                  <div class="grey--text ml-4">
-                    Developer Software Fullstack
-                  </div>
-                </v-row>
-                <div class="my-4 subtitle-1">
-                  $ • Italian, Cafe
-                </div>
-
-                <div>
-                  Small plates, salads & sandwiches - an intimate setting with 12 indoor
-                  seats plus patio seating.
-                </div>
-              </v-card-text>
-
-              <v-divider class="mx-4" />
-            </v-card>
-          </v-col>
-          <v-col cols="9">
-            <v-card>
-              <v-tabs v-model="tab" background-color="primary" dark>
-                <v-tab> About me </v-tab>
-                <v-tab> Portfolio </v-tab>
-                <v-tab> Skills </v-tab>
-              </v-tabs>
-              <v-tabs-items v-model="tab">
-                <v-tab-item>
-                  <v-card flat>
-                    <v-card-text>asdas</v-card-text>
-                  </v-card>
-                </v-tab-item>
-                <v-tab-item>
-                  <v-card flat>
-                    <v-card-text>asdasdasdasdasd</v-card-text>
-                  </v-card>
-                </v-tab-item>
-                <v-tab-item>
-                  <v-card />
-                </v-tab-item>
-              </v-tabs-items>
-            </v-card>
-          </v-col>
-        </v-row> -->
     </div>
   </v-app>
 </template>
@@ -413,43 +522,8 @@
 export default {
   data: () => ({
     tab: null,
-    more: [
-      'News', 'Maps', 'Books', 'Flights', 'Apps'
-    ],
-    activities: [
-      {
-        title: 'Hackathon Oracle Apex 2020',
-        subtitle: 'Ellos compitieron con el proyecto “DidacTICloud - Sistema Educativo Peruano”, que los hizo acreedores de 500 dólares. Este proyecto consistió en el desarrollo de una plataforma educativa con un módulo de asistencia para facilitar la comunicación entre alumnos y profesores.',
-        color: 'red lighten-2',
-        page: 'https://larepublica.pe/nota-de-prensa/2020/12/05/jovenes-arequipenos-obtuvieron-segundo-lugar-en-concurso-tecnologico-lrsd/',
-        src: '/hackathon-apex.png',
-        icon: 'mdi-vuejs'
-      },
-      {
-        title: 'Hackathon ',
-        subtitle: 'Ellos compitieron con el proyecto “DidacTICloud - Sistema Educativo Peruano”, que los hizo acreedores de 500 dólares. Este proyecto consistió en el desarrollo de una plataforma educativa con un módulo de asistencia para facilitar la comunicación entre alumnos y profesores.',
-        color: 'purple darken-1',
-        page: 'https://larepublica.pe/nota-de-prensa/2020/12/05/jovenes-arequipenos-obtuvieron-segundo-lugar-en-concurso-tecnologico-lrsd/',
-        src: '/hackathon-apex.png',
-        icon: 'mdi-vuejs'
-      },
-      {
-        title: 'Hackathon ',
-        subtitle: 'Ellos compitieron con el proyecto “DidacTICloud - Sistema Educativo Peruano”, que los hizo acreedores de 500 dólares. Este proyecto consistió en el desarrollo de una plataforma educativa con un módulo de asistencia para facilitar la comunicación entre alumnos y profesores.',
-        color: 'green lighten-1',
-        page: 'https://larepublica.pe/nota-de-prensa/2020/12/05/jovenes-arequipenos-obtuvieron-segundo-lugar-en-concurso-tecnologico-lrsd/',
-        src: '/hackathon-apex.png',
-        icon: 'mdi-vuejs'
-      },
-      {
-        title: 'Hackathon ',
-        subtitle: 'Ellos compitieron con el proyecto “DidacTICloud - Sistema Educativo Peruano”, que los hizo acreedores de 500 dólares. Este proyecto consistió en el desarrollo de una plataforma educativa con un módulo de asistencia para facilitar la comunicación entre alumnos y profesores.',
-        color: 'indigo',
-        page: 'https://larepublica.pe/nota-de-prensa/2020/12/05/jovenes-arequipenos-obtuvieron-segundo-lugar-en-concurso-tecnologico-lrsd/',
-        src: '/hackathon-apex.png',
-        icon: 'mdi-vuejs'
-      }
-    ],
+    model: null,
+    more: ['News', 'Maps', 'Books', 'Flights', 'Apps'],
     items: [
       {
         color: 'red lighten-2',
@@ -467,27 +541,70 @@ export default {
         color: 'indigo',
         icon: 'mdi-buffer'
       }
+    ],
+    portfolio: [
+      {
+        img: '',
+        title: '',
+        text: ''
+      }
+    ],
+    length: 4,
+    onboarding: 0,
+    portfolios: [
+      {
+        img: 'quipubeer-landing.png',
+        title: 'QuipuBeer',
+        text: ''
+      },
+      {
+        img: 'anunciadev-landing.png',
+        title: 'AnunciaDev',
+        text: ''
+      },
+      {
+        img: 'sistemainventario-landing.png',
+        title: 'Sistema Inventario',
+        text: ''
+      },
+      {
+        img: 'presupuestos-landing.png',
+        title: 'Sistema Valoraciones Colegio Prescott',
+        text: ''
+      }
     ]
-  })
+  }),
+  methods: {
+    next () {
+      this.onboarding = this.onboarding + 1 === this.length
+        ? 0
+        : this.onboarding + 1
+    },
+    prev () {
+      this.onboarding = this.onboarding - 1 < 0
+        ? this.length - 1
+        : this.onboarding - 1
+    }
+  }
 }
 </script>
 <style>
 .image {
-    background: url(https://fondosmil.com/fondo/17010.jpg );
-    background-position: 50%;
-    background-size: cover;
-    background-repeat: no-repeat;
+  background: url(https://fondosmil.com/fondo/17010.jpg);
+  background-position: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .image-carousels {
-    background-position: 50%;
-    background-size: cover;
-    background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 /* @media screen and (max-width: 500px) { */
-  .title-time-line {
-    /* font-size: 14px; */
+.title-time-line {
+  /* font-size: 14px; */
   white-space: pre-line;
- /* }  */
+  /* }  */
 }
 </style>
