@@ -23,25 +23,34 @@
                     </v-card-title>
 
                     <v-card-subtitle>
-                      Developer Software Fullstack
+                      {{ $t('developer') }}
                       <div>
                         <v-icon color="primary">
                           mdi-checkbox-marked-circle
-                        </v-icon>Age: 24
+                        </v-icon>{{ $t('age') }}: 24
                       </div>
                       <div>
                         <v-icon color="primary">
                           mdi-checkbox-marked-circle
-                        </v-icon>Work Experience: 4 years
+                        </v-icon>{{ $t('work_experience') }}: 6 {{ $t('years') }}
                       </div>
                       <div>
                         <v-icon color="primary">
                           mdi-checkbox-marked-circle
-                        </v-icon>Country: Perú
+                        </v-icon>{{ $t('phone') }}: +51933336359
+                      </div>
+                      <div>
+                        <v-icon color="primary">
+                          mdi-checkbox-marked-circle
+                        </v-icon>{{ $t('email') }}: victor.galvez56@gmail.com
+                      </div>
+                      <div>
+                        <v-icon color="primary">
+                          mdi-checkbox-marked-circle
+                        </v-icon>{{ $t('country') }}: Perú
                       </div>
                     </v-card-subtitle>
                     <v-card-text />
-                    <v-divider class="mx-4" />
                   </v-card>
                 </template>
               </v-hover>
@@ -51,18 +60,19 @@
                 <template v-slot:default="{ hover }">
                   <v-card :elevation="hover ? 24 : 6" class="mx-auto pa-6">
                     <v-tabs v-model="tab" show-arrows right>
-                      <v-tab> About me </v-tab>
-                      <v-tab> Portfolio </v-tab>
-                      <v-tab> Skills </v-tab>
+                      <v-tab> {{ $t('about_me') }}</v-tab>
+                      <v-tab> {{ $t('portfolio') }} </v-tab>
+                      <v-tab> {{ $t('skills') }} </v-tab>
                       <v-menu v-if="more.length" bottom left>
                         <template v-slot:activator="{ on, attrs }">
                           <v-btn
                             text
                             class="align-self-center mr-4"
                             v-bind="attrs"
+                            color="grey darken-1"
                             v-on="on"
                           >
-                            options
+                            {{ $t('options') }}
                             <v-icon right>
                               mdi-menu-down
                             </v-icon>
@@ -83,7 +93,15 @@
                                 <v-icon>mdi-translate</v-icon>
                               </v-list-item-icon>
                               <v-list-item-content>
-                                <v-list-item-title>Idioma </v-list-item-title>
+                                <v-list-item-title>{{ $t('spanish') }} </v-list-item-title>
+                              </v-list-item-content>
+                            </v-list-item>
+                            <v-list-item>
+                              <v-list-item-icon>
+                                <v-icon name="img:img/flags/en.svg" /></v-icon>
+                              </v-list-item-icon>
+                              <v-list-item-content>
+                                <v-list-item-title>{{ $t('english') }} </v-list-item-title>
                               </v-list-item-content>
                             </v-list-item>
                           </v-list-item-group>
@@ -112,10 +130,10 @@
                               <v-divider />
                               <v-expansion-panels>
                                 <v-expansion-panel>
-                                  <v-expansion-panel-header>
+                                  <v-expansion-panel-header class="primary--text">
                                     Formación Profesional
                                     <template v-slot:actions>
-                                      <v-icon color="primary">
+                                      <v-icon color="green">
                                         $expand
                                       </v-icon>
                                     </template>
@@ -148,10 +166,10 @@
                                   </v-expansion-panel-content>
                                 </v-expansion-panel>
                                 <v-expansion-panel>
-                                  <v-expansion-panel-header disable-icon-rotate>
+                                  <v-expansion-panel-header class="primary--text">
                                     Experiencia Laboral
                                     <template v-slot:actions>
-                                      <v-icon color="primary">
+                                      <v-icon color="green">
                                         $expand
                                       </v-icon>
                                     </template>
@@ -242,17 +260,17 @@
                                   </v-expansion-panel-content>
                                 </v-expansion-panel>
                                 <v-expansion-panel>
-                                  <v-expansion-panel-header disable-icon-rotate>
+                                  <v-expansion-panel-header class="primary--text">
                                     Hackathones
                                     <template v-slot:actions>
-                                      <v-icon color="primary">
+                                      <v-icon color="green">
                                         $expand
                                       </v-icon>
                                     </template>
                                   </v-expansion-panel-header>
                                   <v-expansion-panel-content>
                                     <v-timeline align-top dense>
-                                      <v-timeline-item color="indigo darken-4" small icon="mdi-star">
+                                      <v-timeline-item color="green darken-4" small icon="mdi-star">
                                         <v-row class="pt-1">
                                           <v-col>
                                             <strong>Hackathon Oracle Apex 2020 Latinoamerica</strong>
@@ -263,7 +281,7 @@
                                           </v-col>
                                         </v-row>
                                       </v-timeline-item>
-                                      <v-timeline-item color="indigo darken-4" small icon="mdi-star">
+                                      <v-timeline-item color="green darken-4" small icon="mdi-star">
                                         <v-row class="pt-1">
                                           <v-col>
                                             <strong>Hackathon Comercio Perú 2020</strong>
@@ -274,7 +292,7 @@
                                           </v-col>
                                         </v-row>
                                       </v-timeline-item>
-                                      <v-timeline-item color="indigo darken-4" small icon="mdi-star">
+                                      <v-timeline-item color="green darken-4" small icon="mdi-star">
                                         <v-row class="pt-1">
                                           <v-col>
                                             <strong>Hackathon La positiva 2019</strong>
@@ -285,7 +303,7 @@
                                           </v-col>
                                         </v-row>
                                       </v-timeline-item>
-                                      <v-timeline-item color="indigo darken-4" small icon="mdi-star">
+                                      <v-timeline-item color="green darken-4" small icon="mdi-star">
                                         <v-row class="pt-1">
                                           <v-col>
                                             <strong>Hackathon Perumin 2019</strong>
@@ -296,7 +314,7 @@
                                           </v-col>
                                         </v-row>
                                       </v-timeline-item>
-                                      <v-timeline-item color="indigo darken-4" small icon="mdi-star">
+                                      <v-timeline-item color="green darken-4" small icon="mdi-star">
                                         <v-row class="pt-1">
                                           <v-col>
                                             <strong>Hackathon El Comercio 2019</strong>
@@ -307,7 +325,7 @@
                                           </v-col>
                                         </v-row>
                                       </v-timeline-item>
-                                      <v-timeline-item color="indigo darken-4" small icon="mdi-star">
+                                      <v-timeline-item color="green darken-4" small icon="mdi-star">
                                         <v-row class="pt-1">
                                           <v-col>
                                             <strong>Apuesta por ti</strong>
@@ -391,118 +409,50 @@
                         </v-tab-item>
                         <v-tab-item>
                           <v-card flat>
-                            <v-card-title class="primary--text">
-                              Frontend
-                            </v-card-title>
-                            <v-card-text>
-                              <strong>HTML5 90%</strong>
-                              <v-progress-linear
-                                color="teal"
-                                buffer-value="0"
-                                value="99"
-                                stream
-                              />
-                              <br>
-                              <strong>CSS3 && SASS </strong>
-                              <v-progress-linear
-                                buffer-value="95"
-                                value="75"
-                                stream
-                                color="cyan"
-                              />
-                              <br>
-                              <strong>JAVASCRIPT 90%</strong>
-                              <v-progress-linear
-                                buffer-value="60"
-                                value="90"
-                                stream
-                                color="orange"
-                              />
-                              <br>
-                              <strong>VUE - VUEX - VUETIFY 60%</strong>
-                              <v-progress-linear
-                                buffer-value="60"
-                                value="90"
-                                stream
-                                color="orange"
-                              />
-                            </v-card-text>
-                            <v-card-title class="primary--text">
-                              Backend
-                            </v-card-title>
-                            <v-card-text>
-                              <div>
-                                <v-progress-linear
-                                  color="light-blue"
-                                  height="20"
-                                  value="90"
-                                  striped
-                                >
-                                  <strong>HTML5 90%</strong>
-                                </v-progress-linear>
-                                <br>
-                                <v-progress-linear
-                                  color="light-green darken-4"
-                                  height="20"
-                                  value="75"
-                                  striped
-                                >
-                                  <strong>CSS3 && SCSS && CSS IN JS 75%</strong>
-                                </v-progress-linear>
-                                <br>
-                                <v-progress-linear
-                                  height="20"
-                                  value="75"
-                                  striped
-                                  color="lime"
-                                />
-                                <br>
-                                <v-progress-linear
-                                  value="60"
-                                  height="20"
-                                  striped
-                                  color="deep-orange"
-                                />
-                              </div>
-                            </v-card-text>
-                            <v-card-title class="primary--text">
-                              Frontend
-                            </v-card-title>
-                            <v-card-text>
-                              <div>
-                                <v-progress-linear
-                                  color="light-blue"
-                                  height="20"
-                                  value="90"
-                                  striped
-                                >
-                                  <strong>HTML5 90%</strong>
-                                </v-progress-linear>
-                                <br>
-                                <v-progress-linear
-                                  color="light-green darken-4"
-                                  height="20"
-                                  value="75"
-                                  striped
-                                >
-                                  <strong>CSS3 && SCSS && CSS IN JS 75%</strong>
-                                </v-progress-linear>
-                                <br>
-                                <v-progress-linear
-                                  height="20"
-                                  value="75"
-                                  striped
-                                  color="lime"
-                                />
-                                <br>
-                                <v-progress-linear
-                                  value="60"
-                                  height="20"
-                                  striped
-                                  color="deep-orange"
-                                />
-                              </div>
-                            </v-card-text>
+                            <v-container class=" lighten-5">
+                              <v-row justify="center">
+                                <v-expansion-panels popout>
+                                  <v-expansion-panel>
+                                    <v-expansion-panel-header>Frontend</v-expansion-panel-header>
+                                    <v-expansion-panel-content>
+                                      <v-col
+                                        v-for="technology in technologiesFront"
+                                        :key="technology"
+                                        cols="12"
+                                        sm="3"
+                                      >
+                                        <v-container>
+                                          <v-img
+                                            :src="technology.svg"
+                                            height="100"
+                                            contain
+                                          />
+                                        </v-container>
+                                      </v-col>
+                                    </v-expansion-panel-content>
+                                  </v-expansion-panel>
+                                  <v-expansion-panel>
+                                    <v-expansion-panel-header>Backend</v-expansion-panel-header>
+                                    <v-expansion-panel-content>
+                                      <v-col
+                                        v-for="technology in technologiesBackend"
+                                        :key="technology"
+                                        cols="12"
+                                        sm="3"
+                                      >
+                                        <v-container>
+                                          <v-img
+                                            :src="technology.svg"
+                                            height="100"
+                                            contain
+                                          />
+                                        </v-container>
+                                      </v-col>
+                                    </v-expansion-panel-content>
+                                  </v-expansion-panel>
+                                </v-expansion-panels>
+                              </v-row>
+                            </v-container>
                           </v-card>
                         </v-tab-item>
                       </v-container>
@@ -513,6 +463,19 @@
             </v-col>
           </v-col>
         </v-row>
+        <v-btn
+          v-show="fab"
+          v-scroll="onScroll"
+          fab
+          dark
+          fixed
+          bottom
+          right
+          color="#2e8fad"
+          @click="toTop"
+        >
+          <v-icon>mdi-chevron-up</v-icon>
+        </v-btn>
       </v-container>
     </div>
   </v-app>
@@ -521,6 +484,7 @@
 <script>
 export default {
   data: () => ({
+    fab: false,
     tab: null,
     model: null,
     more: ['News', 'Maps', 'Books', 'Flights', 'Apps'],
@@ -572,9 +536,68 @@ export default {
         title: 'Sistema Valoraciones Colegio Prescott',
         text: ''
       }
+    ],
+    panelsSkills: [
+      {
+        text: 'FrontEnd'
+      },
+      {
+        text: 'BackEnd'
+      },
+      {
+        text: 'Others'
+      }
+    ],
+    technologiesFront: [
+      {
+        svg: 'html5.svg'
+      },
+      {
+        svg: 'css3.svg'
+      },
+      {
+        svg: 'javascript.svg'
+      },
+      {
+        svg: 'typescript.svg'
+      },
+      {
+        svg: 'vue.svg'
+      },
+      {
+        svg: 'vuetify.svg'
+      },
+      {
+        svg: 'quasar.png'
+      },
+      {
+        svg: 'nuxt-logo.png'
+      }
+    ],
+    technologiesBackend: [
+      {
+        svg: 'laravel.svg'
+      },
+      {
+        svg: 'php.svg'
+      },
+      {
+        svg: 'java.png'
+      },
+      {
+        svg: 'firebase.svg'
+      }
     ]
   }),
   methods: {
+    onScroll (e) {
+      if (typeof window === 'undefined') { return }
+      const top = window.pageYOffset || e.target.scrollTop || 0
+      this.fab = top > 20
+    },
+    toTop () {
+      this.$vuetify.goTo(0)
+    },
     next () {
       this.onboarding = this.onboarding + 1 === this.length
         ? 0
@@ -584,13 +607,17 @@ export default {
       this.onboarding = this.onboarding - 1 < 0
         ? this.length - 1
         : this.onboarding - 1
+    },
+    onToggleLocale (locale) {
+      this.$i18n.locale = locale
+      this.locale = locale
     }
   }
 }
 </script>
 <style>
 .image {
-  background: url(https://fondosmil.com/fondo/17010.jpg);
+  background: url('~static/bg.jpg');
   background-position: 50%;
   background-size: cover;
   background-repeat: no-repeat;
