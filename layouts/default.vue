@@ -80,28 +80,25 @@
                         </template>
                         <v-list>
                           <v-list-item-group>
-                            <v-list-item>
-                              <v-switch v-model="$vuetify.theme.dark" inset />
+                            <v-list-item v-if="$vuetify.theme.dark" @click="onToggleTheme()">
                               <v-list-item-content>
-                                <v-list-item-title>
-                                  Theme Dark
-                                </v-list-item-title>
+                                <v-icon>mdi-lightbulb-off-outline</v-icon>
                               </v-list-item-content>
                             </v-list-item>
-                            <v-list-item>
-                              <v-list-item-icon>
-                                <v-icon>mdi-translate</v-icon>
-                              </v-list-item-icon>
+                            <v-list-item v-if="!$vuetify.theme.dark" @click="onToggleTheme()">
                               <v-list-item-content>
-                                <v-list-item-title>{{ $t('spanish') }} </v-list-item-title>
+                                <v-icon>mdi-lightbulb-on-outline</v-icon>
                               </v-list-item-content>
                             </v-list-item>
-                            <v-list-item>
-                              <v-list-item-icon>
-                                <v-icon name="img:img/flags/en.svg" /></v-icon>
-                              </v-list-item-icon>
+
+                            <v-list-item v-if="language=='en'" @click="onToggleLocale('es')">
                               <v-list-item-content>
-                                <v-list-item-title>{{ $t('english') }} </v-list-item-title>
+                                <v-img src="es.svg" contain max-height="20px" />
+                              </v-list-item-content>
+                            </v-list-item>
+                            <v-list-item v-if="language=='es'" @click="onToggleLocale('en')">
+                              <v-list-item-content>
+                                <v-img src="en.svg" contain max-height="20px" />
                               </v-list-item-content>
                             </v-list-item>
                           </v-list-item-group>
@@ -487,6 +484,8 @@ export default {
     fab: false,
     tab: null,
     model: null,
+    language: '',
+    dark: '',
     more: ['News', 'Maps', 'Books', 'Flights', 'Apps'],
     items: [
       {
@@ -589,6 +588,10 @@ export default {
       }
     ]
   }),
+  created () {
+    this.language = this.$i18n.locale
+    this.dark = true
+  },
   methods: {
     onScroll (e) {
       if (typeof window === 'undefined') { return }
@@ -611,6 +614,14 @@ export default {
     onToggleLocale (locale) {
       this.$i18n.locale = locale
       this.locale = locale
+      this.language = this.$i18n.locale
+    },
+    onToggleTheme () {
+      if (this.$vuetify.theme.dark) {
+        this.$vuetify.theme.dark = false
+      } else {
+        this.$vuetify.theme.dark = true
+      }
     }
   }
 }
