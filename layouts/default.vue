@@ -82,12 +82,12 @@
                           <v-list-item-group>
                             <v-list-item v-if="$vuetify.theme.dark" @click="onToggleTheme()">
                               <v-list-item-content>
-                                <v-icon>mdi-lightbulb-off-outline</v-icon>
+                                <v-icon>mdi-lightbulb-on-outline</v-icon>
                               </v-list-item-content>
                             </v-list-item>
                             <v-list-item v-if="!$vuetify.theme.dark" @click="onToggleTheme()">
                               <v-list-item-content>
-                                <v-icon>mdi-lightbulb-on-outline</v-icon>
+                                <v-icon>mdi-lightbulb-off-outline</v-icon>
                               </v-list-item-content>
                             </v-list-item>
 
@@ -108,7 +108,7 @@
                     <v-tabs-items v-model="tab">
                       <v-container class="spacing-playground" fluid>
                         <v-tab-item>
-                          <v-card flat>
+                          <v-card flat min-height="465px">
                             <v-card-title class="primary--text">
                               About me
                             </v-card-title>
@@ -341,10 +341,7 @@
                           </v-card>
                         </v-tab-item>
                         <v-tab-item>
-                          <v-card
-                            flat
-                            tile
-                          >
+                          <v-card flat min-height="465px">
                             <v-window
                               v-model="onboarding"
                               vertical
@@ -357,7 +354,7 @@
                                 <v-card
                                   class="mx-auto"
                                 >
-                                  <v-img :src="portfolio.img" contain max-height="290" />
+                                  <v-img :src="portfolio.img" contain max-height="295" />
 
                                   <v-card-text>
                                     <h2 class="title primary--text">
@@ -410,7 +407,9 @@
                               <v-row justify="center">
                                 <v-expansion-panels popout>
                                   <v-expansion-panel>
-                                    <v-expansion-panel-header>Frontend</v-expansion-panel-header>
+                                    <v-expansion-panel-header class="primary--text">
+                                      Frontend
+                                    </v-expansion-panel-header>
                                     <v-expansion-panel-content>
                                       <v-col
                                         v-for="technology in technologiesFront"
@@ -429,10 +428,33 @@
                                     </v-expansion-panel-content>
                                   </v-expansion-panel>
                                   <v-expansion-panel>
-                                    <v-expansion-panel-header>Backend</v-expansion-panel-header>
+                                    <v-expansion-panel-header class="primary--text">
+                                      Backend
+                                    </v-expansion-panel-header>
                                     <v-expansion-panel-content>
                                       <v-col
                                         v-for="technology in technologiesBackend"
+                                        :key="technology"
+                                        cols="12"
+                                        sm="3"
+                                      >
+                                        <v-container>
+                                          <v-img
+                                            :src="technology.svg"
+                                            height="100"
+                                            contain
+                                          />
+                                        </v-container>
+                                      </v-col>
+                                    </v-expansion-panel-content>
+                                  </v-expansion-panel>
+                                  <v-expansion-panel>
+                                    <v-expansion-panel-header class="primary--text">
+                                      Others
+                                    </v-expansion-panel-header>
+                                    <v-expansion-panel-content>
+                                      <v-col
+                                        v-for="technology in technologiesOthers"
                                         :key="technology"
                                         cols="12"
                                         sm="3"
@@ -558,6 +580,9 @@ export default {
         svg: 'javascript.svg'
       },
       {
+        svg: 'jquery-2.svg'
+      },
+      {
         svg: 'typescript.svg'
       },
       {
@@ -578,6 +603,9 @@ export default {
         svg: 'laravel.svg'
       },
       {
+        svg: 'codeigniter.svg'
+      },
+      {
         svg: 'php.svg'
       },
       {
@@ -585,6 +613,23 @@ export default {
       },
       {
         svg: 'firebase.svg'
+      }
+    ],
+    technologiesOthers: [
+      {
+        svg: 'euroidiomas.png'
+      },
+      {
+        svg: 'docker.svg'
+      },
+      {
+        svg: 'figma.png'
+      },
+      {
+        svg: 'google-cloud-2.svg'
+      },
+      {
+        svg: 'git.svg'
       }
     ]
   }),
@@ -632,6 +677,8 @@ export default {
   background-position: 50%;
   background-size: cover;
   background-repeat: no-repeat;
+  height: 100%;
+
 }
 .image-carousels {
   background-position: 50%;
